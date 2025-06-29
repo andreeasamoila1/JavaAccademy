@@ -3,6 +3,9 @@ package com.betacom;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.betacom.objects.User;
+import com.betacom.utils.PromozioneAutomatica;
+
 public class MainBase {
 
 	public static void main(String[] args) {
@@ -163,8 +166,59 @@ public class MainBase {
 			}
 		}
 		
+//		
+//		Integer aaa = null;
+//		Boolean bbb = null;
+//		Double  ddd = null;
+//		Character ccc = null;
+//		
+//		int aap = 0;
+//		
+//		Integer.bitCount(aap);
+//		aaa.compareTo(aap);
 		
 		
+		/*
+		 * wrapper class
+		 */
+		Integer prim;
+		Boolean boole;
+		Double doub;
+		Character car;
+		Float fl;
+		Long lon;
+		
+		
+		
+		User user = new User();
+		user.setNome("Marta");
+		user.setCognome("Rossi");
+		/*
+		 * ==
+		 */
+		User user1 = new User("Giorgio", "Verdi");
+		
+		System.out.println("User: " + user);
+		
+		
+		ArrayList<User> lUsers = new ArrayList<User>();
+		lUsers.add(new User("Pietro", "Uno"));
+		lUsers.add(new User("Marco", "Due"));
+		lUsers.add(new User("Carlo", "Tre", true));
+		lUsers.add(new User("Martina", "Quattro"));
+		lUsers.add(new User("Sofia", "Cinque"));
+		
+		System.out.println(lUsers);
+		
+		for(User it: lUsers) {
+			System.out.println(it);
+		}
+		
+		
+		PromozioneAutomatica pA = new PromozioneAutomatica();
+		pA.method(10);
+		pA.method(2.0f);
+		pA.method("parametro string");
 		
 		
 		
