@@ -2,30 +2,35 @@ package com.betacom;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import com.betacom.objects.User;
+import com.betacom.process.ProcessDate;
+
+import static com.betacom.utils.Utilities.displayDate;
+import static com.betacom.utils.Utilities.stringToDate;;
 
 public class MainDate {
 
-	private final static String PATTERN_DATE = "dd/MM/yyyy";
-	
 	
 	
 	public static void main(String[] args) {
-		System.out.println("Begin Main Date");
+		System.out.println("Begin Main Date: " /*+ args[0]*/);
 		
-		User user = new User("Paolo", "Verdi", true, 2000, 03, 07);
-		System.out.println(user);
+		String input = "01/06/2025";
 		
-		LocalDate adesso = LocalDate.now();
-		System.out.println("Adesso: " + adesso);
+		if(new ProcessDate().execute(input)) {
+			
+			System.out.println("Fine normale del proceso");
+		} else {
+			
+			System.out.println("Errore nel processo!");
+		}
+		
+		
 		
 	}
-	
-	public static String displayDate(String pattern, LocalDate myDate) {
-		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-		 
-		 return LocalDate.parse(pattern);
-	}
+
+
 
 }

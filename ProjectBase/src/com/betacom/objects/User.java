@@ -9,6 +9,8 @@ public class User {
 	private String cognome;
 	private Boolean sesso;
 	private LocalDate nascita;
+	private LocalDate certificatoMedico;
+	private Integer mesiDiValidita;
 	
 	
 	
@@ -36,9 +38,24 @@ public class User {
 		this.sesso = sesso;
 		this.nascita = nascita;
 	}
+	
+
+	public User(String nome, String cognome, Boolean sesso, LocalDate nascita, LocalDate certificatoMedico,
+			Integer mesiDiValidita) {
+		super();
+		this.nome = nome;
+		this.cognome = cognome;
+		this.sesso = sesso;
+		this.nascita = nascita;
+		this.certificatoMedico = certificatoMedico;
+		this.mesiDiValidita = mesiDiValidita;
+	}
 
 	public User(String nome, String cognome, Boolean sesso, int anno, int mese, int giorno) {
 		this(nome, cognome, sesso, LocalDate.of(anno, mese, giorno));
+	}
+	public User(String nome, String cognome, Boolean sesso, int anno, int mese, int giorno, LocalDate certificatoMedico, int mesiDiValidita) {
+		this(nome, cognome, sesso, LocalDate.of(anno, mese, giorno), certificatoMedico, mesiDiValidita);
 	}
 
 	public String getNome() {
@@ -68,6 +85,26 @@ public class User {
 		this.nascita = nascita;
 	}
 
+	public LocalDate getCertificatoMedico() {
+		return certificatoMedico;
+	}
+
+	public void setCertificatoMedico(LocalDate certificatoMedico) {
+		this.certificatoMedico = certificatoMedico;
+	}
+
+	public Integer getMesiDiValidita() {
+		return mesiDiValidita;
+	}
+
+	public void setMesiDiValidita(Integer mesiDiValidita) {
+		this.mesiDiValidita = mesiDiValidita;
+	}
+	
+	public LocalDate getFineValidita() {
+		return certificatoMedico.plusMonths(mesiDiValidita);
+	}
+
 	@Override
 	public String toString() {
 		String resp = "User [nome=" + nome + ", cognome=" + cognome;
@@ -75,6 +112,10 @@ public class User {
 			resp = resp + ", sesso=" + sesso;
 		if(nascita != null)
 			resp = resp + ", nascita=" + nascita;
+		if(certificatoMedico != null)
+			resp = resp + ", certificatoMedico=" + certificatoMedico;
+		if(mesiDiValidita != null)
+			resp = resp + ", mesiDiValidita=" + mesiDiValidita;
 		resp = resp + "]";
 		return resp;
 	}
