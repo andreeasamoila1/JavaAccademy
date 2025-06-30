@@ -5,11 +5,15 @@ import java.util.Locale;
 import com.betacom.objects.Impiegati;
 import com.betacom.process.interfaces.IDispalaySalary;
 import com.betacom.process.interfaces.ISalaryInsert;
+import com.betacom.singletone.MySingleTone;
 
 public class ImpiegatiProcess implements ISalaryInsert, IDispalaySalary{
 
 	@Override
 	public void newSalaryInsert(Impiegati imp) {
+		Integer idx = MySingleTone.getInstance().computerIndice();
+		System.out.println("Valore di idx: "+ idx);
+		
 		long quota = 2;
 		if(imp.getSesso()) {
 			quota = 2;

@@ -4,11 +4,20 @@ import com.betacom.objects.Impiegati;
 import com.betacom.process.implementations.ImpiegatiProcess;
 import com.betacom.process.interfaces.IDispalaySalary;
 import com.betacom.process.interfaces.ISalaryInsert;
+import com.betacom.singletone.MySingleTone;
 
 public class ProcessInterface {
 
 	public boolean execute() {
 		System.out.println("Begin Process Interface");
+		
+		/*
+		 * implementazione singletone
+		 */
+		Integer idx = MySingleTone.getInstance().computerIndice();
+		System.out.println("Valore di idx: "+ idx);
+		
+		
 		
 		Impiegati i = new Impiegati("Paolo", "Bianchi", true, 2000L);
 		System.out.println("Iniziale: " + i);

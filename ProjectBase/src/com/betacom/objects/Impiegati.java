@@ -1,5 +1,7 @@
 package com.betacom.objects;
 
+import com.betacom.singletone.MySingleTone;
+
 public class Impiegati extends User{
 
 	private Long salary;
@@ -17,6 +19,9 @@ public class Impiegati extends User{
 //		super.setSesso(sesso);
 		
 		this.salary = salary;
+		
+		Integer idx = MySingleTone.getInstance().computerIndice();
+		System.out.println("Valore di idx: "+ idx);
 	}
 
 	public Long getSalary() {
